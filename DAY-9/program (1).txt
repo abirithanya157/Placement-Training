@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    bank b=new bank();
+	    boolean flag=true;
+	    
+	    while(flag!=false){
+	        System.out.println("\n1.Available balance\n2.Deposit\n3.withdraw\n4.exit\n");
+	        int choice=s.nextInt();
+	        switch(choice){
+	        case 1:
+	            System.out.println("Current balance:"+b.getbalance());
+	            break;
+	        case 2:
+              System.out.println("deposite amount:");     
+	           b.deposit(s.nextInt());
+	           break;
+	        case 3:
+                System.out.println("withdraw amount:");     
+	            b.withdraw(s.nextInt());
+	            break;
+	        default:
+	        flag=false;
+	        }
+	    }
+	}
+}
+class bank{
+    private int balance=9000;
+    int amount;
+    void deposit(int amount){
+        this.amount=amount;
+        balance+=amount;
+        System.out.println("Deposited amount:"+amount);
+        System.out.println("Current balance:"+balance);
+    }
+    void withdraw(int amount){
+        this.amount =amount;
+        balance-=amount;
+         System.out.println("Withdrawn amount:"+amount);
+         System.out.println("Current balance:"+balance);
+    }
+    int getbalance(){
+        return balance;
+    }
+}
